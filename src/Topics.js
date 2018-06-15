@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom'
 import Topic from './Topic'
+import TestForm from './TestForm'
 
 class Topics extends Component {
     render() {
@@ -8,6 +9,9 @@ class Topics extends Component {
             <div>
                 <h2>Topics</h2>
                 <ul>
+                    <li>
+                        <Link to={`/topics/forms`}>Forms | </Link>
+                    </li>
                     <li>
                         <Link to={`${this.props.match.url}/rendering`}>Rendering with React | </Link>
                     </li>
@@ -17,12 +21,10 @@ class Topics extends Component {
                     <li>
                         <Link to={`${this.props.match.url}/props-v-state`}>Props v. State |</Link>
                     </li>
-                    <li>
-                        <Link to={`${this.props.match.url}/forms`}>Forms | </Link>
-                    </li>
                 </ul>
 
                 <Route path={`${this.props.match.url}/:topicId`} component={Topic} />
+                <Route path="/topics/forms" component={TestForm} />
                 <Route
                     exact
                     path={this.props.match.url}
